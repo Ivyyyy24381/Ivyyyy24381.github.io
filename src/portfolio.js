@@ -40,8 +40,8 @@ const socialMediaLinks = [
   {
     name: "Google Scholar",
     link: "https://scholar.google.com/citations?user=5uK35CcAAAAJ&hl=en",
-    fontAwesomeIcon: "fa-google",
-    backgroundColor: "#0077C3",
+    fontAwesomeIcon: "fas fa-graduation-cap",
+    backgroundColor: "#4285F4",
   },
   {
     name: "Github",
@@ -91,238 +91,11 @@ const socialMediaLinks = [
 const skills = {
   data: [
     {
-      title: "Data Science & AI",
-      fileName: "DataScienceImg",
+      title: "",
       skills: [
-        "⚡ Developing highly scalable production ready models for various deeplearning and statistical use cases",
-        "⚡ Experience of working with Computer Vision and NLP projects",
-        "⚡ Complex quantitative modelling for dynamic forecasting and time series analysis",
+        "I am Ivy X. He, currently pursuing a Ph.D. in Computer Science at Brown University. My research focuses on robotics and engineering, where I develop advanced autonomous systems and machine learning models. I have interned at Argo AI and RE2 Robotics, working on projects like Lidar detection and robotic simulation environments. My background includes a Bachelor’s in Mechanical Engineering and Robotics from Carnegie Mellon University. I am passionate about pushing the boundaries of robotics technology and its applications in real-world scenarios.",
       ],
-      softwareSkills: [
-        {
-          skillName: "Tensorflow",
-          fontAwesomeClassname: "logos-tensorflow",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Keras",
-          fontAwesomeClassname: "simple-icons:keras",
-          style: {
-            backgroundColor: "white",
-            color: "#D00000",
-          },
-        },
-        {
-          skillName: "PyTorch",
-          fontAwesomeClassname: "logos-pytorch",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Python",
-          fontAwesomeClassname: "ion-logo-python",
-          style: {
-            backgroundColor: "transparent",
-            color: "#3776AB",
-          },
-        },
-        {
-          skillName: "Deeplearning",
-          imageSrc: "deeplearning_ai_logo.png",
-        },
-      ],
-    },
-    {
-      title: "Full Stack Development",
-      fileName: "FullStackImg",
-      skills: [
-        "⚡ Building responsive website front end using React-Redux",
-        "⚡ Developing mobile applications using Flutter, React Native and solo android apps using Kotlin",
-        "⚡ Creating application backend in Node, Express & Flask",
-      ],
-      softwareSkills: [
-        {
-          skillName: "HTML5",
-          fontAwesomeClassname: "simple-icons:html5",
-          style: {
-            color: "#E34F26",
-          },
-        },
-        {
-          skillName: "CSS3",
-          fontAwesomeClassname: "fa-css3",
-          style: {
-            color: "#1572B6",
-          },
-        },
-        {
-          skillName: "Sass",
-          fontAwesomeClassname: "simple-icons:sass",
-          style: {
-            color: "#CC6699",
-          },
-        },
-        {
-          skillName: "JavaScript",
-          fontAwesomeClassname: "simple-icons:javascript",
-          style: {
-            backgroundColor: "#000000",
-            color: "#F7DF1E",
-          },
-        },
-        {
-          skillName: "ReactJS",
-          fontAwesomeClassname: "simple-icons:react",
-          style: {
-            color: "#61DAFB",
-          },
-        },
-        {
-          skillName: "NodeJS",
-          fontAwesomeClassname: "devicon-plain:nodejs-wordmark",
-          style: {
-            color: "#339933",
-          },
-        },
-        {
-          skillName: "NPM",
-          fontAwesomeClassname: "simple-icons:npm",
-          style: {
-            color: "#CB3837",
-          },
-        },
-        {
-          skillName: "Yarn",
-          fontAwesomeClassname: "simple-icons:yarn",
-          style: {
-            color: "#2C8EBB",
-          },
-        },
-        {
-          skillName: "Gatsby",
-          fontAwesomeClassname: "simple-icons:gatsby",
-          style: {
-            color: "#663399",
-          },
-        },
-        {
-          skillName: "Flutter",
-          fontAwesomeClassname: "simple-icons:flutter",
-          style: {
-            color: "#02569B",
-          },
-        },
-      ],
-    },
-    {
-      title: "Cloud Infra-Architecture",
-      fileName: "CloudInfraImg",
-      skills: [
-        "⚡ Experience working on multiple cloud platforms",
-        "⚡ Hosting and maintaining websites on virtual machine instances along with integration of databases",
-        "⚡ Deploying deep learning models on cloud to use on mobile devices",
-        "⚡ Setting up streaming jobs from DB to Server or vice-versa on GCP and AWS",
-      ],
-      softwareSkills: [
-        {
-          skillName: "GCP",
-          fontAwesomeClassname: "simple-icons:googlecloud",
-          style: {
-            color: "#4285F4",
-          },
-        },
-        {
-          skillName: "AWS",
-          fontAwesomeClassname: "simple-icons:amazonaws",
-          style: {
-            color: "#FF9900",
-          },
-        },
-        {
-          skillName: "Azure",
-          fontAwesomeClassname: "simple-icons:microsoftazure",
-          style: {
-            color: "#0089D6",
-          },
-        },
-        {
-          skillName: "Firebase",
-          fontAwesomeClassname: "simple-icons:firebase",
-          style: {
-            color: "#FFCA28",
-          },
-        },
-        {
-          skillName: "PostgreSQL",
-          fontAwesomeClassname: "simple-icons:postgresql",
-          style: {
-            color: "#336791",
-          },
-        },
-        {
-          skillName: "MongoDB",
-          fontAwesomeClassname: "simple-icons:mongodb",
-          style: {
-            color: "#47A248",
-          },
-        },
-        {
-          skillName: "Docker",
-          fontAwesomeClassname: "simple-icons:docker",
-          style: {
-            color: "#1488C6",
-          },
-        },
-        {
-          skillName: "Kubernetes",
-          fontAwesomeClassname: "simple-icons:kubernetes",
-          style: {
-            color: "#326CE5",
-          },
-        },
-      ],
-    },
-    {
-      title: "UI/UX Design",
-      fileName: "DesignImg",
-      skills: [
-        "⚡ Designing highly attractive user interface for mobile and web applications",
-        "⚡ Customizing logo designs and building logos from scratch",
-        "⚡ Creating the flow of application functionalities to optimize user experience",
-      ],
-      softwareSkills: [
-        {
-          skillName: "Adobe XD",
-          fontAwesomeClassname: "simple-icons:adobexd",
-          style: {
-            color: "#FF2BC2",
-          },
-        },
-        {
-          skillName: "Figma",
-          fontAwesomeClassname: "simple-icons:figma",
-          style: {
-            color: "#F24E1E",
-          },
-        },
-        {
-          skillName: "Adobe Illustrator",
-          fontAwesomeClassname: "simple-icons:adobeillustrator",
-          style: {
-            color: "#FF7C00",
-          },
-        },
-        {
-          skillName: "Inkscape",
-          fontAwesomeClassname: "simple-icons:inkscape",
-          style: {
-            color: "#000000",
-          },
-        },
-      ],
+      softwareSkills: [],
     },
   ],
 };
@@ -389,11 +162,7 @@ const degrees = {
       logo_path: "brown_logo.png",
       alt_name: "IIITDM Kurnool",
       duration: "2023 - Now",
-      descriptions: [
-        // "⚡ I have studied basic software engineering subjects like DS, Algorithms, DBMS, OS, CA, AI etc.",
-        // "⚡ Apart from this, I have done courses on Deep Learning, Data Science, Cloud Computing and Full Stack Development.",
-        // "⚡ I was selected for Merit cum Means Scholarship which is given to top 10% of students in college. I have received award from respected director for consistently best performance in academics.",
-      ],
+      descriptions: ["advised by Prof Stefanie Tellex"],
       // website_link: "http://iiitk.ac.in",
     },
     {
@@ -704,25 +473,28 @@ const publicationsHeader = {
 const publications = {
   data: [
     {
-      id: "neuro-symbolic-sudoku-solver",
-      name: "Neuro-Symbolic Sudoku Solver",
-      createdAt: "2023-07-02T00:00:00Z",
-      description: "Paper published in KDD KiML 2023",
-      url: "https://arxiv.org/abs/2307.00653",
+      id: "find-it-like-a-dog",
+      name: "Find it like a dog: Using Gesture to Improve Object Search",
+      createdAt: "2024-07-01T00:00:00Z",
+      description:
+        "Proceedings of the Annual Meeting of the Cognitive Science Society, 46",
+      url: "https://escholarship.org/uc/item/0nk6w9fd",
     },
     {
-      id: "mdp-diffusion",
-      name: "MDP-Diffusion",
-      createdAt: "2023-09-19T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/mdp-diffusion/",
+      id: "ultrahigh-evaporative-heat-transfer",
+      name:
+        "Ultrahigh Evaporative Heat Transfer Measured Locally in Submicron Water Films",
+      createdAt: "2022-12-26T00:00:00Z",
+      description: "Scientific Reports, 12(1):22353",
+      url: "https://www.nature.com/articles/s41598-022-26182-2",
     },
     {
-      id: "consistency-models",
-      name: "Consistency Models",
-      createdAt: "2023-10-12T00:00:00Z",
-      description: "Blog published in Paperspace",
-      url: "https://blog.paperspace.com/consistency-models/",
+      id: "fungal-morphology-simulation",
+      name:
+        "Exploring Fungal Morphology Simulation and Dynamic Light Containment from a Graphics Generation Perspective",
+      createdAt: "2024-09-08T00:00:00Z",
+      description: "SIGGRAPH Asia 2024 Art Papers",
+      url: "https://arxiv.org/abs/2409.05171",
     },
   ],
 };
@@ -733,7 +505,7 @@ const contactPageData = {
     title: "Contact Me",
     profile_image_path: "animated_ashutosh.png",
     description:
-      "I am available on almost every social media. You can message me, I will reply within 24 hours. I can help you with ML, AI, React, Android, Cloud and Opensource Development.",
+      "I am available on almost every social media. You can message me, I will reply within 24 hours.",
   },
   blogSection: {
     title: "Blogs",
@@ -741,21 +513,6 @@ const contactPageData = {
       "I like to document some of my experiences in professional career journey as well as some technical knowledge sharing.",
     link: "https://blogs.ashutoshhathidara.com/",
     avatar_image_path: "blogs_image.svg",
-  },
-  addressSection: {
-    title: "From",
-    subtitle: "PVD | PGH | HOU | SHA",
-    // locality: "San Jose",
-    // country: "USA",
-    // region: "California",
-    // postalCode: "95129",
-    // streetAddress: "Saratoga Avenue",
-    // avatar_image_path: "address_image.svg",
-    // location_map_link: "https://maps.app.goo.gl/NvYZqa34Wye4tpS17",
-  },
-  phoneSection: {
-    title: "",
-    subtitle: "",
   },
 };
 
@@ -765,8 +522,8 @@ export {
   greeting,
   socialMediaLinks,
   skills,
-  competitiveSites,
   degrees,
+  competitiveSites,
   certifications,
   experience,
   publicationsHeader,

@@ -2,9 +2,10 @@ import React from "react";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
-import { greeting } from "../../portfolio";
+import { greeting, degrees } from "../../portfolio";
 import { Fade } from "react-reveal";
 import FeelingProud from "./FeelingProud";
+import DegreeCard from "../../components/degreeCard/DegreeCard";
 
 export default function Greeting(props) {
   const theme = props.theme;
@@ -29,15 +30,22 @@ export default function Greeting(props) {
                 {greeting.subTitle}
               </p>
               <SocialMedia theme={theme} />
-              <div className="portfolio-repo-btn-div">
-                <Button
-                  text="⭐ Star Me On Github"
-                  newTab={true}
-                  href={greeting.portfolio_repository}
-                  theme={theme}
-                  className="portfolio-repo-btn"
-                />
+              <div className="education-section">
+                <div className="educations-header-div">
+                  <h2
+                    className="educations-header"
+                    style={{ color: theme.text }}
+                  >
+                    Education
+                  </h2>
+                </div>
+                <div className="educations-body-div">
+                  {degrees.degrees.map((degree, index) => (
+                    <DegreeCard key={index} degree={degree} theme={theme} />
+                  ))}
+                </div>
               </div>
+
               {/* <div className="button-greeting-div">
               <Button text="Contact me" href="#contact" />
               <Button text="See my resume" newTab={true} href={greeting.resumeLink} />
@@ -49,7 +57,12 @@ export default function Greeting(props) {
 							alt="saad sitting on table"
 							src={require("../../assets/images/feelingProud.svg")}
 						></img> */}
-            <FeelingProud theme={theme} />
+            {/* <FeelingProud theme={theme} /> */}
+            <img
+              src={require("../../assets/images/home_ballet_picture.png")}
+              alt="Ivy's portfolio image'"
+              style={{ maxWidth: "100%", height: "auto", borderRadius: "10px" }}
+            />
           </div>
         </div>
       </div>
