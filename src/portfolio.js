@@ -13,7 +13,7 @@ const seo = {
   og: {
     title: "Ivy X. He Portfolio",
     type: "website",
-    url: "https://ivyhe.github.io", // Replace with your actual URL if hosted
+    url: "Ivyyyy24381.github.io", // Replace with your actual URL if hosted
   },
 };
 
@@ -24,19 +24,11 @@ const greeting = {
   nickname: "何筱 - Xiao He",
   subTitle: "Robotics Researcher, Engineer & Dancer",
   resumeLink: "", // Add your actual resume link here
-  portfolio_repository: "https://github.com/ashutosh1919/masterPortfolio",
-  githubProfile: "https://github.com/your-github-username", // Replace with your actual GitHub URL
+  portfolio_repository: "https://github.com/Ivyyyy24381/masterPortfolio",
+  githubProfile: "https://github.com/Ivyyyy24381", // Replace with your actual GitHub URL
 };
 
 const socialMediaLinks = [
-  /* Your Social Media Link */
-  // github: "https://github.com/ashutosh1919",
-  // linkedin: "https://www.linkedin.com/in/ashutosh-hathidara-88710b138/",
-  // gmail: "ashutoshhathidara98@gmail.com",
-  // gitlab: "https://gitlab.com/ashutoshhathidara98",
-  // facebook: "https://www.facebook.com/laymanbrother.19/",
-  // twitter: "https://twitter.com/ashutosh_1919",
-  // instagram: "https://www.instagram.com/layman_brother/"
   {
     name: "Google Scholar",
     link: "https://scholar.google.com/citations?user=5uK35CcAAAAJ&hl=en",
