@@ -2,7 +2,7 @@
 
 // Website related settings
 const settings = {
-  isSplash: true, // Change this to false if you don't want Splash screen.
+  isSplash: false, // Change this to false if you don't want Splash screen.
 };
 
 //SEO Related settings
@@ -465,6 +465,22 @@ const publicationsHeader = {
 const publications = {
   data: [
     {
+      id: "legs-pomdp",
+      name:
+        "LEGS-POMDP: Language and Gesture-Guided Object Search in Partially Observable Environments",
+      createdAt: "2026-03-03T00:00:00Z",
+      description:
+        "To appear in ACM/IEEE International Conference on Human-Robot Interaction (HRI) 2026",
+      url: "https://ivyyyy24381.github.io/LEGS/",
+    },
+    {
+      id: "unitac",
+      name: "UniTac: Whole-Robot Touch Sensing Without Tactile Sensors",
+      createdAt: "2025-07-10T00:00:00Z",
+      description: "arXiv preprint arXiv:2507.07980",
+      url: "https://arxiv.org/abs/2507.07980",
+    },
+    {
       id: "find-it-like-a-dog",
       name: "Find it like a dog: Using Gesture to Improve Object Search",
       createdAt: "2024-07-01T00:00:00Z",
@@ -473,20 +489,20 @@ const publications = {
       url: "https://escholarship.org/uc/item/0nk6w9fd",
     },
     {
-      id: "ultrahigh-evaporative-heat-transfer",
-      name:
-        "Ultrahigh Evaporative Heat Transfer Measured Locally in Submicron Water Films",
-      createdAt: "2022-12-26T00:00:00Z",
-      description: "Scientific Reports, 12(1):22353",
-      url: "https://www.nature.com/articles/s41598-022-26182-2",
-    },
-    {
       id: "fungal-morphology-simulation",
       name:
         "Exploring Fungal Morphology Simulation and Dynamic Light Containment from a Graphics Generation Perspective",
       createdAt: "2024-09-08T00:00:00Z",
       description: "SIGGRAPH Asia 2024 Art Papers",
       url: "https://arxiv.org/abs/2409.05171",
+    },
+    {
+      id: "ultrahigh-evaporative-heat-transfer",
+      name:
+        "Ultrahigh Evaporative Heat Transfer Measured Locally in Submicron Water Films",
+      createdAt: "2022-12-26T00:00:00Z",
+      description: "Scientific Reports, 12(1):22353",
+      url: "https://www.nature.com/articles/s41598-022-26182-2",
     },
   ],
 };

@@ -40,6 +40,54 @@ class Home extends Component {
             </div>
           </div>
         )}
+        <div
+          className="undergraduate-projects-section"
+          style={{
+            textAlign: "center",
+            padding: "40px 20px",
+            marginTop: "40px",
+          }}
+        >
+          <h2 style={{ color: this.props.theme.text, marginBottom: "20px" }}>
+            Undergraduate Projects
+          </h2>
+          <p
+            style={{
+              color: this.props.theme.secondaryText,
+              marginBottom: "30px",
+              fontSize: "18px",
+            }}
+          >
+            View my mechanical engineering and robotics projects from Carnegie
+            Mellon University
+          </p>
+          <a
+            href="https://hexiao24381.wixsite.com/ivyh"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              padding: "15px 40px",
+              backgroundColor: this.props.theme.highlight,
+              color: "#fff",
+              textDecoration: "none",
+              borderRadius: "5px",
+              fontSize: "16px",
+              fontWeight: "500",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = "translateY(-2px)";
+              e.target.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "translateY(0)";
+              e.target.style.boxShadow = "none";
+            }}
+          >
+            View Undergraduate Portfolio →
+          </a>
+        </div>
         <Footer theme={this.props.theme} />
         <TopButton theme={this.props.theme} />
       </div>
