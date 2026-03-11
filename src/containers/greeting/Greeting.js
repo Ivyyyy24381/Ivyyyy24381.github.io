@@ -6,6 +6,7 @@ import { greeting, degrees } from "../../portfolio";
 import { Fade } from "react-reveal";
 import FeelingProud from "./FeelingProud";
 import DegreeCard from "../../components/degreeCard/DegreeCard";
+import SkillSection from "../skills/SkillSection";
 
 export default function Greeting(props) {
   const theme = props.theme;
@@ -30,6 +31,7 @@ export default function Greeting(props) {
                 {greeting.subTitle}
               </p>
               <SocialMedia theme={theme} />
+              <SkillSection theme={theme} />
               <div className="education-section">
                 <div className="educations-header-div">
                   <h2

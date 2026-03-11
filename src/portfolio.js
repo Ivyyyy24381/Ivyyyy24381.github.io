@@ -457,13 +457,22 @@ const projectsHeader = {
 };
 
 const publicationsHeader = {
-  title: "Publications",
+  title: "Selected Publications",
   description: "Some of my published Articles, Blogs and Research.",
   avatar_image_path: "projects_image.svg",
 };
 
 const publications = {
   data: [
+    {
+      id: "choreographic-improvisational",
+      name:
+        "Choreographic and Improvisational Approaches To Interrogating Robotic Systems",
+      createdAt: "2026-03-11T00:00:00Z",
+      description:
+        "To appear in International Conference on Movement and Computing (MOCO) 2026",
+      url: "",
+    },
     {
       id: "legs-pomdp",
       name:
@@ -472,6 +481,7 @@ const publications = {
       description:
         "To appear in ACM/IEEE International Conference on Human-Robot Interaction (HRI) 2026",
       url: "https://ivyyyy24381.github.io/LEGS/",
+      arxivUrl: "https://arxiv.org/abs/2603.04705",
     },
     {
       id: "unitac",

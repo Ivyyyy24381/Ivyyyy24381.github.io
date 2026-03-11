@@ -22,6 +22,20 @@ export default function PublicationCard({ pub, theme }) {
           </div>
           <p className="publication-description" style={{ color: theme.text }}>
             {pub.description}
+            {pub.arxivUrl && (
+              <>
+                {" | "}
+                <a
+                  href={pub.arxivUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  style={{ color: theme.text }}
+                >
+                  arXiv
+                </a>
+              </>
+            )}
           </p>
           <div className="publication-details">
             <p
