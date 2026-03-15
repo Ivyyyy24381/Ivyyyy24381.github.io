@@ -3,8 +3,9 @@ import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
-import { publications, publicationsHeader } from "../../portfolio";
+import { publications, publicationsHeader, degrees } from "../../portfolio";
 import PublicationCard from "../../components/publicationsCard/PublicationCard";
+import DegreeCard from "../../components/degreeCard/DegreeCard";
 class Home extends Component {
   render() {
     return (
@@ -38,6 +39,25 @@ class Home extends Component {
             </div>
           </div>
         )}
+        <div className="publication-section">
+          <div className="educations-header-div">
+            <h2
+              className="educations-header"
+              style={{ color: this.props.theme.text }}
+            >
+              Education
+            </h2>
+          </div>
+          <div className="educations-body-div">
+            {degrees.degrees.map((degree, index) => (
+              <DegreeCard
+                key={index}
+                degree={degree}
+                theme={this.props.theme}
+              />
+            ))}
+          </div>
+        </div>
         <div
           className="undergraduate-projects-section"
           style={{

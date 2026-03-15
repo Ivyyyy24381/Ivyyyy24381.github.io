@@ -72,12 +72,12 @@ const socialMediaLinks = [
   //   fontAwesomeIcon: "fa-facebook-f", // Reference https://fontawesome.com/icons/facebook-f?style=brands
   //   backgroundColor: "#1877F2", // Reference https://simpleicons.org/?q=facebook
   // },
-  {
-    name: "Instagram",
-    link: "https://www.instagram.com/hxivyyyy/",
-    fontAwesomeIcon: "fa-instagram", // Reference https://fontawesome.com/icons/instagram?style=brands
-    backgroundColor: "#E4405F", // Reference https://simpleicons.org/?q=instagram
-  },
+  // {
+  //   name: "Instagram",
+  //   link: "https://www.instagram.com/hxivyyyy/",
+  //   fontAwesomeIcon: "fa-instagram",
+  //   backgroundColor: "#E4405F",
+  // },
 ];
 
 const skills = {
@@ -456,6 +456,23 @@ const projectsHeader = {
   avatar_image_path: "projects_image.svg",
 };
 
+const recentNews = [
+  {
+    date: "March 2026",
+    text:
+      "Our paper LEGS-POMDP is accepted at HRI 2026! We present a framework for multimodal object search under partial observability — combining language, gesture, and visual perception with VLMs.",
+    links: [
+      { label: "Paper", url: "https://arxiv.org/abs/2603.04705" },
+      { label: "Website", url: "https://ivyyyy24381.github.io/LEGS/" },
+      { label: "Code", url: "https://github.com/h2r/LEGS-POMDP" },
+      {
+        label: "Brown News",
+        url: "https://www.brown.edu/news/2026-03-13/robot-fetch",
+      },
+    ],
+  },
+];
+
 const publicationsHeader = {
   title: "Selected Publications",
   description: "Some of my published Articles, Blogs and Research.",
@@ -544,6 +561,7 @@ export {
   competitiveSites,
   certifications,
   experience,
+  recentNews,
   publicationsHeader,
   publications,
   projectsHeader,

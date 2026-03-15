@@ -2,7 +2,7 @@ import React from "react";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
-import { greeting, degrees } from "../../portfolio";
+import { greeting, degrees, recentNews } from "../../portfolio";
 import { Fade } from "react-reveal";
 import FeelingProud from "./FeelingProud";
 import DegreeCard from "../../components/degreeCard/DegreeCard";
@@ -30,23 +30,82 @@ export default function Greeting(props) {
               >
                 {greeting.subTitle}
               </p>
+              <p
+                style={{
+                  color: theme.secondaryText,
+                  fontFamily: "Google Sans Regular",
+                  fontSize: "16px",
+                  margin: "12px 0 8px 0",
+                }}
+              >
+                xiao_he@brown.edu
+              </p>
               <SocialMedia theme={theme} />
               <SkillSection theme={theme} />
-              <div className="education-section">
-                <div className="educations-header-div">
+              {recentNews.length > 0 && (
+                <div style={{ marginTop: "24px" }}>
                   <h2
                     className="educations-header"
-                    style={{ color: theme.text }}
+                    style={{
+                      color: theme.text,
+                      fontSize: "22px",
+                      marginBottom: "16px",
+                    }}
                   >
-                    Education
+                    Recent News
                   </h2>
-                </div>
-                <div className="educations-body-div">
-                  {degrees.degrees.map((degree, index) => (
-                    <DegreeCard key={index} degree={degree} theme={theme} />
+                  {recentNews.map((item, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        display: "flex",
+                        gap: "16px",
+                        marginBottom: "14px",
+                      }}
+                    >
+                      <span
+                        style={{
+                          color: theme.secondaryText,
+                          fontFamily: "Google Sans Regular",
+                          fontSize: "14px",
+                          minWidth: "90px",
+                          paddingTop: "2px",
+                          flexShrink: 0,
+                        }}
+                      >
+                        {item.date}
+                      </span>
+                      <span
+                        style={{
+                          color: theme.text,
+                          fontFamily: "Google Sans Regular",
+                          fontSize: "14px",
+                          lineHeight: "1.6",
+                        }}
+                      >
+                        {item.text}{" "}
+                        {item.links.map((link, i) => (
+                          <span key={i}>
+                            <a
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                color: theme.text,
+                                textDecoration: "underline",
+                                fontWeight: "500",
+                              }}
+                            >
+                              [{link.label}]
+                            </a>
+                            {i < item.links.length - 1 && " "}
+                          </span>
+                        ))}
+                      </span>
+                    </div>
                   ))}
                 </div>
-              </div>
+              )}
 
               {/* <div className="button-greeting-div">
               <Button text="Contact me" href="#contact" />
