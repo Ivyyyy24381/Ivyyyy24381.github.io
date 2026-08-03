@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "fetchhound",
+      "name": "FetchHound",
+      "createdAt": "2026-06-01T00:00:00Z",
+      "url": "https://gregjones11235.github.io/fetchhound/",
+      "description": "From human-canine to human-robot object search: teaching a quadruped a dog-like social attention policy. Reconstructs 3D gaze and attention from multi-camera dog video, then trains closed-loop policies (PyTorch MLP/LSTM/Transformer) via learning from demonstration, evaluated on Spot in simulation. Preliminary results presented at the ICRA 2026 Learning-HRI workshop.",
+      "languages": [
+        {
+          "name": "Python",
+          "iconifyClass": "logos-python"
+        },
+        {
+          "name": "C#",
+          "iconifyClass": "logos-c-sharp"
+        }
+      ]
+    },
+    {
+      "id": "umbra",
+      "name": "UMBRA: Multi-Robot Shadow Art",
+      "createdAt": "2026-06-01T00:00:00Z",
+      "url": "https://ivyyyy24381.github.io/Shadow_robot/",
+      "description": "A multi-robot shadow performance system supported by the National Endowment for the Arts. A fleet of SO-101 arms holds props under a single light to cast designed silhouettes: analytic pose solving, prop assignment, 5-DOF IK in MuJoCo, CMA-ES + JAX trajectory optimization, and a Next.js + FastAPI fleet-control design studio, deployed to real hardware.",
+      "languages": [
+        {
+          "name": "Python",
+          "iconifyClass": "logos-python"
+        },
+        {
+          "name": "JavaScript",
+          "iconifyClass": "logos-javascript"
+        }
+      ]
+    }
+  ]
+}
