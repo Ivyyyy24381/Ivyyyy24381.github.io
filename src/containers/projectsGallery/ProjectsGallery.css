@@ -1,0 +1,97 @@
+.projects-gallery-main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.projects-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  border-radius: 18px;
+  padding: 36px 34px 30px 34px;
+  height: 100%;
+  box-shadow: 0 4px 14px rgba(29, 12, 65, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(29, 12, 65, 0.16);
+  text-decoration: none;
+}
+
+.gallery-card-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.gallery-card-title {
+  font-family: "Google Sans Medium", sans-serif;
+  font-size: 34px;
+  margin: 0 0 4px 0;
+}
+
+.gallery-card-tagline {
+  font-family: "Google Sans Regular", sans-serif;
+  font-size: 17px;
+  font-style: italic;
+  margin: 0 0 14px 0;
+}
+
+.gallery-card-desc {
+  font-family: "Google Sans Regular", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0 0 18px 0;
+  text-align: left;
+}
+
+.gallery-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.gallery-tag {
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 4px 12px;
+  white-space: nowrap;
+}
+
+.gallery-card-link {
+  font-family: "Google Sans Medium", sans-serif;
+  font-size: 15px;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .projects-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .gallery-card {
+    padding: 28px 24px 24px 24px;
+  }
+
+  .gallery-card-title {
+    font-size: 28px;
+  }
+}

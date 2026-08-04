@@ -3,9 +3,12 @@
     {
       "id": "fetchhound",
       "name": "FetchHound",
+      "kicker": "Robot Learning · ICRA 2026 Learning-HRI Workshop",
+      "tagline": "From human-canine to human-robot object search",
       "createdAt": "2026-06-01T00:00:00Z",
       "url": "https://gregjones11235.github.io/fetchhound/",
-      "description": "From human-canine to human-robot object search: teaching a quadruped a dog-like social attention policy. Reconstructs 3D gaze and attention from multi-camera dog video, then trains closed-loop policies (PyTorch MLP/LSTM/Transformer) via learning from demonstration, evaluated on Spot in simulation. Preliminary results presented at the ICRA 2026 Learning-HRI workshop.",
+      "description": "Teaching a quadruped a dog-like social attention policy: 3D gaze and attention reconstructed from multi-camera dog video, closed-loop policies trained via learning from demonstration and evaluated on Spot in simulation.",
+      "tags": ["Learning from Demonstration", "PyTorch", "Unity", "Spot", "Gaze & Attention"],
       "languages": [
         {
           "name": "Python",
@@ -19,10 +22,13 @@
     },
     {
       "id": "umbra",
-      "name": "UMBRA: Multi-Robot Shadow Art",
+      "name": "UMBRA",
+      "kicker": "Robotic Art · Supported by the National Endowment for the Arts",
+      "tagline": "A multi-robot shadow performance system",
       "createdAt": "2026-06-01T00:00:00Z",
       "url": "https://ivyyyy24381.github.io/Shadow_robot/",
-      "description": "A multi-robot shadow performance system supported by the National Endowment for the Arts. A fleet of SO-101 arms holds props under a single light to cast designed silhouettes: analytic pose solving, prop assignment, 5-DOF IK in MuJoCo, CMA-ES + JAX trajectory optimization, and a Next.js + FastAPI fleet-control design studio, deployed to real hardware.",
+      "description": "A fleet of SO-101 arms holds props under a single light to cast designed silhouettes: analytic pose solving, 5-DOF IK in MuJoCo, CMA-ES + JAX trajectory optimization, and a Next.js + FastAPI design studio, deployed to real hardware.",
+      "tags": ["Multi-Robot", "MuJoCo", "JAX", "Motion Planning", "Next.js + FastAPI"],
       "languages": [
         {
           "name": "Python",

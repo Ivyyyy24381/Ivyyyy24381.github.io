@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";
+import ProjectsGallery from "../../containers/projectsGallery/ProjectsGallery";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
 import { publications, publicationsHeader, degrees } from "../../portfolio";
@@ -12,6 +13,7 @@ class Home extends Component {
       <div>
         <Header theme={this.props.theme} />
         <Greeting theme={this.props.theme} />
+        <ProjectsGallery theme={this.props.theme} />
         {publications.data.length > 0 && (
           <div className="publication-section">
             <div className="educations-header-div">
