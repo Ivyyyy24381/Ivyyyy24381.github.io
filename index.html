@@ -18,13 +18,13 @@
    paw print on a screen, a quadruped lifts it off, and it lands as the tittle
    over the I of "Ivy". Light is the one accent; everything else is ink. */
 :root {
-  --paper:      #f1f2f4;
-  --surface:    #fbfbfc;
-  --ink:        #14161b;
-  --muted:      #4d525d;
-  --hairline:   #c2c6cf;
-  --lamp:       #a8741a;
-  --shadow:     rgba(20, 22, 27, 0.14);
+  --paper:      #f4efe3;
+  --surface:    #fcf9f2;
+  --ink:        #1d1a14;
+  --muted:      #585144;
+  --hairline:   #d6cdb9;
+  --lamp:       #9a6a12;
+  --shadow:     rgba(40, 33, 20, 0.14);
   --stage:      #0c0e12;
   --stage-ink:  #e6e7ea;
 
@@ -37,11 +37,11 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper:    #101217;
-    --surface:  #171a20;
-    --ink:      #e8e9ec;
-    --muted:    #a9b0bc;
-    --hairline: #3a3f4a;
+    --paper:    #16140f;
+    --surface:  #1f1c16;
+    --ink:      #ece7dc;
+    --muted:    #b0a794;
+    --hairline: #3d382d;
     --lamp:     #e0ad58;
     --shadow:   rgba(0, 0, 0, 0.55);
     --stage:    #07080b;
@@ -49,11 +49,11 @@
   }
 }
 :root[data-theme="dark"] {
-  --paper:    #101217;
-  --surface:  #171a20;
-  --ink:      #e8e9ec;
-  --muted:    #a9b0bc;
-  --hairline: #3a3f4a;
+  --paper:    #16140f;
+  --surface:  #1f1c16;
+  --ink:      #ece7dc;
+  --muted:    #b0a794;
+  --hairline: #3d382d;
   --lamp:     #e0ad58;
   --shadow:   rgba(0, 0, 0, 0.55);
   --stage:    #07080b;
@@ -286,6 +286,7 @@ section > .wrap { padding-block: clamp(44px, 6vw, 76px); }
   font-size: clamp(22px, 2.8vw, 30px); line-height: 1.1; text-transform: uppercase; margin: -.1em 0 14px;
 }
 .long { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 0; max-width: 58ch; }
+.long strong { color: var(--ink); font-weight: 600; }
 .areas { font-size: 10.5px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin: 16px 0 0; }
 .pmeta { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .04em; color: var(--muted); margin: 6px 0 0; line-height: 1.7; }
 .pnote { font-size: 11.5px; font-weight: 600; color: var(--lamp); margin: 10px 0 0; }
@@ -435,7 +436,7 @@ footer .wrap { padding-block: 26px; }
             <span class="gtab"><span class="gsub">Social navigation</span></span>
           </span>
           <span class="gtldr">Horses negotiate right of way without a rulebook. Can a robot learn to yield the same way?</span>
-          <span class="gfoot"><span class="gname">Yielding</span><span class="gven">In progress</span></span>
+          <span class="gfoot"><span class="gname">REIN</span><span class="gven">In progress</span></span>
         </div>
         <div class="gcard" role="tab" tabindex="0" id="tab-umbra" aria-controls="panel-umbra" aria-selected="false">
           <span class="gthumb"><img src="assets/umbra.png" alt="Robot arms whose overlapping shadows spell the words SHADOW ART, in simulation and on real hardware." style="object-fit:cover">
@@ -589,8 +590,8 @@ footer .wrap { padding-block: 26px; }
       </div>
       <div class="panel" role="tabpanel" id="panel-socialnav" aria-labelledby="tab-socialnav" hidden>
         <div>
-          <h3>Yielding</h3>
-          <p class="long">A horse herd has no fixed leader and no right-of-way rule, yet it resolves conflicts constantly through legible, graded signals — matching pace, holding distance, orienting attention. The question is whether a robot can learn to give way the same way. The work so far is the instrument: an interactive social-navigation benchmark where the robot policy, the pedestrian model and the physics are strictly separated, so five baselines compete under identical constraints across corridor, crossing, bottleneck, crowd and circle-crossing scenes. Early measurements say interaction-aware planners barely modulate their speed while resolving a conflict, which makes them unreadable to anyone trying to cooperate with them — legibility as a precondition for reciprocity is the hypothesis being tested next.</p>
+          <h3>REIN</h3>
+          <p class="long"><strong>Role-Expressive Interactive Navigation.</strong> A horse herd has no fixed leader and no right-of-way rule, yet it resolves conflicts constantly through legible, graded signals — matching pace, holding distance, orienting attention. The question is whether a robot can learn to give way the same way. The work so far is the instrument: an interactive social-navigation benchmark where the robot policy, the pedestrian model and the physics are strictly separated, so five baselines compete under identical constraints across corridor, crossing, bottleneck, crowd and circle-crossing scenes. Early measurements say interaction-aware planners barely modulate their speed while resolving a conflict, which makes them unreadable to anyone trying to cooperate with them — legibility as a precondition for reciprocity is the hypothesis being tested next.</p>
           <p class="areas">Social navigation · Legibility · Animal behaviour as a model</p>
         </div>
         <div class="pside">
