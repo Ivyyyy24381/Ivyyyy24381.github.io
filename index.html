@@ -196,6 +196,11 @@ section > .wrap { padding-block: clamp(44px, 6vw, 76px); }
 }
 
 /* ---- news ---- */
+.newsgrid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+  gap: clamp(24px, 4vw, 56px); align-items: end;
+}
+.newsdog { width: 100%; height: auto; display: block; justify-self: end; }
 .news { display: grid; gap: 30px; max-width: 70ch; }
 .item { display: block; }
 .when {
@@ -344,6 +349,8 @@ footer .wrap { padding-block: 26px; }
   .intro { grid-template-columns: 1fr; }
   .panel { grid-template-columns: 1fr; }
   .intro h1, .intro .role, .intro .lede:first-of-type { grid-column: 1; grid-row: auto; }
+  .newsgrid { grid-template-columns: 1fr; }
+  .newsdog { max-width: 240px; justify-self: start; }
   .foot-grid { grid-template-columns: 1fr; }
   .portrait { max-width: 240px; }
 }
@@ -606,6 +613,7 @@ footer .wrap { padding-block: 26px; }
 <section id="news">
   <div class="wrap">
     <h2 class="h2">Recent news</h2>
+    <div class="newsgrid">
     <div class="news">
       <div class="item">
         <div class="when">Nov 2026</div>
@@ -643,6 +651,8 @@ footer .wrap { padding-block: 26px; }
           <div class="refs"><a href="https://dl.acm.org/doi/10.1145/3802842.3802876">ACM DL ↗</a></div>
         </div>
       </div>
+    </div>
+    <img class="newsdog" src="assets/dog.webp" alt="A small black-and-tan dog looking up at the camera, wearing a head-mounted eye tracker.">
     </div>
   </div>
 </section>
