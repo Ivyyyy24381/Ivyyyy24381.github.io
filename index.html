@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ivy X. He</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ivy X. He — Ph.D. candidate in the Humans to Robots Lab at Brown University. Multimodal human-robot interaction, embodied AI, social attention and robotic art.">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-icon-180x180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+
+<style>
+/* Layout: one narrow reading column (ink on cool paper). The hero holds a small
+   lit theatre — UMBRA's world dropped into the page — where three arms cast a
+   paw print on a screen, a quadruped lifts it off, and it lands as the tittle
+   over the I of "Ivy". Light is the one accent; everything else is ink. */
+:root {
+  --paper:      #f1f2f4;
+  --surface:    #fbfbfc;
+  --ink:        #14161b;
+  --muted:      #4d525d;
+  --hairline:   #c2c6cf;
+  --lamp:       #a8741a;
+  --shadow:     rgba(20, 22, 27, 0.14);
+  --stage:      #0c0e12;
+  --stage-ink:  #e6e7ea;
+
+  --mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: var(--mono);
+  --body:    var(--mono);
+
+  --measure: 64ch;
+  --col: 1180px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:    #101217;
+    --surface:  #171a20;
+    --ink:      #e8e9ec;
+    --muted:    #a9b0bc;
+    --hairline: #3a3f4a;
+    --lamp:     #e0ad58;
+    --shadow:   rgba(0, 0, 0, 0.55);
+    --stage:    #07080b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:    #101217;
+  --surface:  #171a20;
+  --ink:      #e8e9ec;
+  --muted:    #a9b0bc;
+  --hairline: #3a3f4a;
+  --lamp:     #e0ad58;
+  --shadow:   rgba(0, 0, 0, 0.55);
+  --stage:    #07080b;
+  color-scheme: dark;
+}
+
+:root { --card: var(--surface); --card-fg: var(--ink); --card-dim: var(--muted); }
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.62;
+  letter-spacing: -.005em;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--paper);
+}
+.wrap {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--lamp); outline-offset: 3px; border-radius: 2px;
+}
+
+/* ---- top bar ---- */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1.5px solid var(--hairline);
+}
+.bar .wrap { display: flex; align-items: center; gap: 24px; padding-block: 12px; }
+.sig {
+  font-size: 15px; font-weight: 700; letter-spacing: .02em;
+  text-decoration: none; margin-right: auto; white-space: nowrap;
+}
+.bar nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.bar nav a, #themeBtn {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 600; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+}
+.bar nav a:hover { color: var(--ink); }
+#themeBtn {
+  background: none; border: 1.5px solid var(--hairline); border-radius: 999px;
+  padding: 3px 11px; cursor: pointer;
+}
+#themeBtn:hover { color: var(--ink); border-color: var(--muted); }
+
+/* ---- hero ---- */
+.hero { position: relative; }
+.hero .wrap {
+  padding-block: clamp(28px, 4vw, 44px) clamp(40px, 6vw, 72px);
+  display: block;
+}
+.plate { margin: 0 0 clamp(32px, 4vw, 52px); }
+.plate img {
+  width: 100%; max-width: 100%; display: block; border-radius: 2px;
+  aspect-ratio: 16 / 7; object-fit: cover; object-position: 50% 42%;
+}
+.plate figcaption {
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  margin-top: 12px; letter-spacing: .03em;
+}
+.intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.intro h1, .intro .role { grid-column: 1; }
+.intro .lede:first-of-type { grid-column: 2; grid-row: 1 / span 3; margin-top: .5em; }
+.eyebrow {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--lamp); margin: 0 0 22px;
+}
+h1 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(40px, 6.4vw, 72px); line-height: 1.02; letter-spacing: -.045em;
+  margin: 0; text-wrap: balance; padding-top: .30em;
+  text-shadow: .055em .07em 0 var(--shadow);
+}
+/* the I carries the paw as its tittle */
+.eye { position: relative; display: inline-block; }
+.tittle {
+  position: absolute; left: 50%; bottom: .76em;
+  width: .30em; height: .30em; transform: translateX(-50%);
+}
+.tittle svg { width: 100%; height: 100%; display: block; fill: var(--lamp); }
+.cn {
+  font-weight: 500;
+  font-size: clamp(17px, 2vw, 21px); color: var(--muted);
+  margin: 16px 0 0; letter-spacing: .04em;
+}
+.role { font-family: var(--mono); font-size: 12.5px; font-weight: 600; line-height: 1.9; margin: 26px 0 0; letter-spacing: .02em; }
+.role span { color: var(--muted); }
+.lede { max-width: 58ch; margin: 24px 0 0; font-size: 14.5px; line-height: 1.75; color: var(--muted); }
+.lede p { margin: 0 0 1.15em; }
+.lede p:last-child { margin-bottom: 0; }
+.lede strong { color: var(--ink); font-weight: 600; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.links { gap: 22px; }
+.links a {
+  font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none;
+  border-bottom: 2px solid var(--hairline); padding-bottom: 3px;
+}
+.links a:hover { border-color: var(--lamp); color: var(--lamp); }
+.links a.cv { border-bottom-color: var(--lamp); }
+
+/* ---- the theatre ---- */
+.theatre { margin: 0; align-self: start; }
+.theatre svg.stage { width: 100%; height: auto; display: block; border-radius: 3px; }
+.cord { cursor: pointer; }
+.cord:hover .knob { fill: var(--lamp); }
+.stage-note {
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  margin-top: 14px; letter-spacing: .05em; display: flex;
+  justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.stage-note b { font-weight: 400; color: var(--lamp); }
+
+/* paw in flight, between the screen and the headline */
+#flyingPaw {
+  position: absolute; left: 0; top: 0; width: 60px; height: 60px;
+  pointer-events: none; opacity: 0; z-index: 4;
+}
+#flyingPaw svg { width: 100%; height: 100%; display: block; fill: var(--lamp); }
+
+/* ---- section frame ---- */
+section { border-top: 1.5px solid var(--hairline); }
+section > .wrap { padding-block: clamp(44px, 6vw, 76px); }
+.h2 {
+  font-family: var(--mono); font-weight: 700; font-size: 12px;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--ink); margin: 0 0 30px;
+}
+
+/* ---- news ---- */
+.news { display: grid; gap: 26px; max-width: 880px; }
+.item { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 22px; }
+.when {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 700; color: var(--lamp);
+  letter-spacing: .08em; text-transform: uppercase; padding-top: 4px; font-variant-numeric: tabular-nums;
+}
+.item p { margin: 0; max-width: var(--measure); }
+.refs { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; }
+.refs a {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  border-bottom: 1.5px solid var(--hairline); padding-bottom: 2px;
+}
+.refs a:hover { color: var(--lamp); border-color: var(--lamp); }
+
+/* ---- work ---- */
+.hint { font-size: 10.5px; font-weight: 400; font-style: normal; font-family: var(--mono); color: var(--muted); opacity: .65; letter-spacing: .06em; }
+.gallery {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  gap: clamp(16px, 2vw, 24px); margin-bottom: 44px;
+}
+.gcard {
+  display: grid; align-content: start; gap: 0; text-align: left;
+  background: var(--card); color: var(--card-fg);
+  border: 1.5px solid var(--hairline); border-radius: 18px; padding: 8px;
+  cursor: pointer; font: inherit;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .18s, box-shadow .18s;
+}
+.gcard:hover { transform: translateY(-3px); border-color: var(--muted); }
+.gthumb {
+  position: relative; display: block; border-radius: 13px; overflow: hidden;
+  aspect-ratio: 4 / 3; background: var(--paper);
+}
+.gthumb img { width: 100%; height: 100%; display: block; }
+.gtab {
+  position: absolute; left: 0; bottom: 0; max-width: 88%;
+  background: var(--card); padding: 11px 16px 9px 14px;
+  border-top-right-radius: 14px; display: grid; gap: 1px;
+}
+.gtab::after {
+  content: ""; position: absolute; left: 100%; bottom: 0; width: 16px; height: 16px;
+  background: radial-gradient(circle at 100% 0, transparent 16px, var(--card) 16px);
+}
+.gtab { padding: 10px 15px 8px 14px; }
+.gsub {
+  font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--muted);
+}
+.gtldr {
+  font-size: 12.5px; line-height: 1.55; color: var(--muted);
+  padding: 16px 12px 0; min-height: 4.6em;
+}
+.gfoot {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 14px 12px 8px; gap: 12px;
+}
+.gname {
+  font-family: var(--mono); font-size: clamp(14px, 1.6vw, 17px); font-weight: 700;
+  letter-spacing: -.02em; text-transform: uppercase; line-height: 1.15;
+  color: var(--ink); min-width: 0;
+}
+.gven {
+  font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted); text-align: right; flex: 0 0 auto;
+}
+.glinks { display: flex; flex-wrap: wrap; gap: 7px; padding: 4px 12px 8px; }
+.glinks a {
+  font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; text-decoration: none; color: var(--ink);
+  border: 1.5px solid var(--hairline); border-radius: 999px; padding: 4px 11px;
+  transition: border-color .16s, color .16s, background .16s;
+}
+.glinks a:hover { color: var(--lamp); border-color: var(--lamp); }
+.gcard[aria-selected="true"] { border-color: var(--lamp); box-shadow: 0 0 0 1.5px var(--lamp); }
+
+.detail { border-top: 1.5px solid var(--hairline); padding-top: 28px; }
+.detail:not(:has(.panel:not([hidden]))) { border-top: 0; padding-top: 0; }
+.panel[hidden] { display: none; }
+.panel {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 270px);
+  gap: clamp(24px, 4vw, 52px); align-items: start;
+}
+.panel h3 {
+  font-family: var(--display); font-weight: 700; letter-spacing: -.03em;
+  font-size: clamp(22px, 2.8vw, 30px); line-height: 1.1; text-transform: uppercase; margin: -.1em 0 14px;
+}
+.long { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 0; max-width: 58ch; }
+.areas { font-size: 10.5px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin: 16px 0 0; }
+.pmeta { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .04em; color: var(--muted); margin: 6px 0 0; line-height: 1.7; }
+.pnote { font-size: 11.5px; font-weight: 600; color: var(--lamp); margin: 10px 0 0; }
+.plinks { display: flex; flex-direction: column; align-items: start; gap: 9px; margin-top: 18px; }
+.plinks a {
+  font-size: 11.5px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+  text-decoration: none; border-bottom: 2px solid var(--hairline); padding-bottom: 3px;
+}
+.plinks a:hover { color: var(--lamp); border-color: var(--lamp); }
+.aside { font-size: 13px; color: var(--muted); margin: 38px 0 0; max-width: 60ch; }
+.aside strong { color: var(--ink); font-weight: 600; }
+
+/* ---- publications ---- */
+.pubs { display: grid; max-width: 980px; }
+.pub {
+  display: grid; grid-template-columns: 112px minmax(0, 1fr);
+  gap: 22px; padding-block: 20px; border-bottom: 1px solid var(--hairline);
+}
+.pub:first-child { border-top: 1px solid var(--hairline); }
+.pub .year {
+  font-family: var(--mono); font-size: 12px; color: var(--muted);
+  font-variant-numeric: tabular-nums; padding-top: 3px;
+}
+.pub h4 {
+  font-family: var(--display); font-weight: 400; font-size: 20px;
+  line-height: 1.3; margin: 0 0 6px; max-width: var(--measure);
+}
+.pub h4 a {
+  text-decoration: none;
+  background-image: linear-gradient(var(--hairline), var(--hairline));
+  background-size: 100% 1px; background-repeat: no-repeat; background-position: 0 100%;
+}
+.pub h4 a:hover { background-image: linear-gradient(var(--lamp), var(--lamp)); color: var(--lamp); }
+.venue { font-family: var(--mono); font-size: 12px; color: var(--muted); margin: 0; }
+.venue a { color: var(--lamp); }
+
+/* ---- footer ---- */
+footer { border-top: 1.5px solid var(--hairline); background: var(--surface); }
+footer .wrap { padding-block: 26px; }
+.foot-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 220px);
+  gap: clamp(28px, 5vw, 56px); align-items: start;
+}
+.portrait img {
+  width: 100%; max-width: 100%; display: block; border-radius: 2px;
+  filter: grayscale(.25) contrast(1.04);
+  box-shadow: 12px 14px 0 var(--shadow);
+}
+.portrait figcaption { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 14px; }
+.mail { font-family: var(--display); font-size: clamp(18px, 3vw, 30px); font-weight: 700; margin: 0 0 12px; letter-spacing: -.03em; }
+.colophon { font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--muted); margin: 0; letter-spacing: .06em; }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .intro { grid-template-columns: 1fr; }
+  .panel { grid-template-columns: 1fr; }
+  .intro h1, .intro .role, .intro .lede:first-of-type { grid-column: 1; grid-row: auto; }
+  .foot-grid { grid-template-columns: 1fr; }
+  .portrait { max-width: 240px; }
+}
+@media (max-width: 620px) {
+  .item, .pub { grid-template-columns: 1fr; gap: 6px; }
+  .bar nav { gap: 14px; }
+  .sig { font-size: 17px; }
+}
+</style>
+
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="sig" href="#top">Ivy X. He</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#news">News</a>
+    </nav>
+    <button id="themeBtn" type="button" aria-label="Switch colour theme">Dark</button>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="intro">
+      <h1><span class="eye">I<span class="tittle" aria-hidden="true"><svg viewBox="-50 -50 100 100">
+        <ellipse cx="-27" cy="-16" rx="9" ry="12" transform="rotate(-22 -27 -16)"></ellipse>
+        <ellipse cx="-9" cy="-29" rx="9.5" ry="13" transform="rotate(-8 -9 -29)"></ellipse>
+        <ellipse cx="10" cy="-29" rx="9.5" ry="13" transform="rotate(8 10 -29)"></ellipse>
+        <ellipse cx="28" cy="-16" rx="9" ry="12" transform="rotate(22 28 -16)"></ellipse>
+        <path d="M0,-8 C16,-8 30,4 30,17 C30,31 17,40 0,40 C-17,40 -30,31 -30,17 C-30,4 -16,-8 0,-8 Z"></path>
+      </svg></span></span>vy X.&nbsp;He</h1>
+      <p class="role">
+        Robotics researcher, engineer &amp; dancer<br>
+        <span>Providence, Rhode Island</span><br>
+        xiao_he [at] brown.edu
+      </p>
+      <div class="lede">
+      <p>
+        I am a fourth-year Ph.D. candidate in the <strong>Humans to Robots Lab</strong> at Brown
+        University, advised by Prof. Stefanie Tellex. Previously I completed a B.S. in Mechanical
+        Engineering with an additional major in Robotics at Carnegie Mellon University, where I was
+        systems integration and creative lead on the <strong>Iris Lunar Rover</strong>.
+      </p>
+      <p>
+        My research asks how agents with different bodies come to understand each other: what the
+        minimum shared information for communication is, and which representations carry meaning
+        across embodiments. My past work spans multimodal instruction grounding, social attention
+        and gaze, social navigation, and expressive robot behaviour — often bridging robotics,
+        cognitive science and art.
+      </p>
+      <p class="areas">Human–robot interaction · Multimodal grounding · Embodied AI ·
+        Decision-making under uncertainty · Social attention · Robotic art</p>
+      </div>
+      <div class="links">
+        <a class="cv" href="Ivy_He_CV.pdf">Curriculum Vitae</a>
+        <a href="https://scholar.google.com/citations?user=5uK35CcAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://github.com/Ivyyyy24381">GitHub</a>
+        <a href="https://www.linkedin.com/in/ivyhe24381/">LinkedIn</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <h2 class="h2">Selected work <span class="hint">— pick one to read more</span></h2>
+    <div class="gallery" role="tablist" aria-label="Projects">
+        <div class="gcard" role="tab" tabindex="0" id="tab-legs" aria-controls="panel-legs" aria-selected="false">
+          <span class="gthumb"><img src="assets/legs.png" alt="A person points and says “bring me the blue book over there” while a quadruped robot searches the room." style="object-fit:contain">
+            <span class="gtab"><span class="gsub">Multimodal grounding</span></span>
+          </span>
+          <span class="gtldr">Point and say “the blue book over there” — the robot searches where you actually meant.</span>
+          <span class="gfoot"><span class="gname">LEGS-POMDP</span><span class="gven">HRI 2026</span></span>
+          <span class="glinks"><a href="https://ivyyyy24381.github.io/LEGS/">Project ↗</a><a href="https://arxiv.org/abs/2603.04705">Paper ↗</a><a href="https://github.com/h2r/LEGS-POMDP">Code ↗</a></span>
+        </div>
+        <div class="gcard" role="tab" tabindex="0" id="tab-fetchhound" aria-controls="panel-fetchhound" aria-selected="false">
+          <span class="gthumb"><img src="assets/fetchhound-sim.png" alt="Top-down replay of a search trial in simulation: a reconstructed point cloud of the room with labelled objects, the dog's path in blue with gaze rays branching off it, the human's path in green, and a red star on the target." style="object-fit:contain;padding:8px">
+            <span class="gtab"><span class="gsub">Social attention</span></span>
+          </span>
+          <span class="gtldr">Replaying real human–dog searches in simulation to learn where a robot should look.</span>
+          <span class="gfoot"><span class="gname">FetchHound</span><span class="gven">ICRA 2026 WS</span></span>
+          <span class="glinks"><a href="https://ivyyyy24381.github.io/FetchHound_Bench/simple.html#pointing">Project ↗</a></span>
+        </div>
+        <div class="gcard" role="tab" tabindex="0" id="tab-socialnav" aria-controls="panel-socialnav" aria-selected="false">
+          <span class="gthumb"><img src="assets/socialnav.png" alt="Four simulated social-navigation layouts: a crossing, a bottleneck, and two circle-crossing scenes where a robot and five or ten pedestrians head for goals on the far side." style="object-fit:contain;padding:10px">
+            <span class="gtab"><span class="gsub">Social navigation</span></span>
+          </span>
+          <span class="gtldr">Horses negotiate right of way without a rulebook. Can a robot learn to yield the same way?</span>
+          <span class="gfoot"><span class="gname">Yielding</span><span class="gven">In progress</span></span>
+        </div>
+        <div class="gcard" role="tab" tabindex="0" id="tab-umbra" aria-controls="panel-umbra" aria-selected="false">
+          <span class="gthumb"><img src="assets/umbra.png" alt="Robot arms whose overlapping shadows spell the words SHADOW ART, in simulation and on real hardware." style="object-fit:cover">
+            <span class="gtab"><span class="gsub">Robotic art</span></span>
+          </span>
+          <span class="gtldr">A fleet of ordinary robot arms poses so that the union of their shadows becomes one picture.</span>
+          <span class="gfoot"><span class="gname">UMBRA</span><span class="gven">ICRA 2027</span></span>
+          <span class="glinks"><a href="https://ivyyyy24381.github.io/Shadow_robot/">Project ↗</a></span>
+        </div>
+        <div class="gcard" role="tab" tabindex="0" id="tab-choreo" aria-controls="panel-choreo" aria-selected="false">
+          <span class="gthumb"><img src="assets/choreo.webp" alt="A dancer recording a movement next to Spot, a chunk-metadata diagram, and Spot reperforming it." style="object-fit:cover">
+            <span class="gtab"><span class="gsub">Movement and computing</span></span>
+          </span>
+          <span class="gtldr">Dancers record movement on their own bodies, then translate it onto Spot to find out what the robot can say.</span>
+          <span class="gfoot"><span class="gname">Choreographic Interrogation</span><span class="gven">MOCO 2026</span></span>
+          <span class="glinks"><a href="https://dl.acm.org/doi/10.1145/3802842.3802876">Paper ↗</a></span>
+        </div>
+        <div class="gcard" role="tab" tabindex="0" id="tab-findit" aria-controls="panel-findit" aria-selected="false">
+          <span class="gthumb"><img src="assets/findit.webp" alt="A person pointing at red cups while a dog watches and a quadruped robot stands behind." style="object-fit:cover">
+            <span class="gtab"><span class="gsub">Gesture understanding</span></span>
+          </span>
+          <span class="gtldr">When someone points, which vector do they actually mean? Five candidates, tested against real dogs.</span>
+          <span class="gfoot"><span class="gname">Find It Like a Dog</span><span class="gven">CogSci 2024</span></span>
+          <span class="glinks"><a href="https://escholarship.org/uc/item/0nk6w9fd">Paper ↗</a></span>
+        </div>
+        <div class="gcard" role="tab" tabindex="0" id="tab-duo" aria-controls="panel-duo" aria-selected="false">
+          <span class="gthumb"><img src="assets/duo.jpg" alt="A robot arm inserting a coffee pod beside a human hand doing the same task." style="object-fit:cover">
+            <span class="gtab"><span class="gsub">Cross-embodiment learning</span></span>
+          </span>
+          <span class="gtldr">Human video teaches the robot how to move; a little robot data teaches it where precision matters.</span>
+          <span class="gfoot"><span class="gname">DUO Policy</span><span class="gven">2026</span></span>
+          <span class="glinks"><a href="https://mingxi-jia.github.io/duo_policy_site/">Project ↗</a><a href="https://mingxi-jia.github.io/papers/duo_policy.pdf">Paper ↗</a></span>
+        </div>
+        <div class="gcard" role="tab" tabindex="0" id="tab-unitac" aria-controls="panel-unitac" aria-selected="false">
+          <span class="gthumb"><img src="assets/unitac.webp" alt="Eight dog poses beside Spot performing each one." style="object-fit:cover">
+            <span class="gtab"><span class="gsub">Tactile sensing</span></span>
+          </span>
+          <span class="gtldr">Feeling where it was touched, anywhere on its body, with no tactile sensors at all.</span>
+          <span class="gfoot"><span class="gname">UniTac</span><span class="gven">CVPR 2026 WS</span></span>
+          <span class="glinks"><a href="https://arxiv.org/abs/2507.07980">Paper ↗</a></span>
+        </div>
+        <div class="gcard" role="tab" tabindex="0" id="tab-fungal" aria-controls="panel-fungal" aria-selected="false">
+          <span class="gthumb"><img src="assets/fungal.webp" alt="Simulated fungal growth beside petri dishes lit by programmable light patterns." style="object-fit:cover">
+            <span class="gtab"><span class="gsub">Computational art</span></span>
+          </span>
+          <span class="gtldr">Simulating how fungi grow, and steering living cultures with light.</span>
+          <span class="gfoot"><span class="gname">Fungal Morphology</span><span class="gven">SIGGRAPH Asia 2024</span></span>
+          <span class="glinks"><a href="https://arxiv.org/abs/2409.05171">Paper ↗</a></span>
+        </div>
+    </div>
+    <div class="detail">
+      <div class="panel" role="tabpanel" id="panel-umbra" aria-labelledby="tab-umbra" hidden>
+        <div>
+          <h3>UMBRA</h3>
+          <p class="long">Multi-robot shadow art as projection-space whole-body control. A staged CMA-ES solver assigns image-space regions to each arm and warm-starts from a library of past solutions, beating monolithic search with 3.8× fewer renders. On UMBRA-Bench (562 silhouettes, mean IoU 0.771) and three physical SO-101 arms, viewers in a 34-person study identified 85.8% of simulated and 68.8% of physically cast shadows, against 20% chance.</p>
+          <p class="areas">Expressive embodiment · Multi-robot whole-body control · Robotic art</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2026 — now · Under review, ICRA 2027</p>
+          <p class="pnote">Supported by the National Endowment for the Arts</p>
+          <div class="plinks"><a href="https://ivyyyy24381.github.io/Shadow_robot/">Project website ↗</a></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-legs" aria-labelledby="tab-legs" hidden>
+        <div>
+          <h3>LEGS-POMDP</h3>
+          <p class="long">A POMDP that fuses 3D gesture cones, language prompts and visual grounding into a single observation model. Gesture and language together reach 89% success, more than 18 points above either modality on its own.</p>
+          <p class="areas">Multimodal instruction grounding · Decision-making under uncertainty</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2024 — 2025 · HRI 2026 full paper</p>
+          <p class="pnote">Also at ICRA 2025 Late Breaking Results</p>
+          <div class="plinks"><a href="https://ivyyyy24381.github.io/LEGS/">Project website ↗</a><a href="https://arxiv.org/abs/2603.04705">arXiv ↗</a><a href="https://github.com/h2r/LEGS-POMDP">Code ↗</a><a href="https://www.brown.edu/news/2026-03-13/robot-fetch">Brown News ↗</a></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-fetchhound" aria-labelledby="tab-fetchhound" hidden>
+        <div>
+          <h3>FetchHound</h3>
+          <p class="long">Social attention in collaborative search, framed as a learning problem: when, where and what to look at using the partner’s attention, where standard active perception only maximises information gain. 3D gaze is reconstructed from multi-camera human–canine search video — per-session camera poses, a head-direction cone and a measured object catalogue — and compared against human-coded fixations and pretrained gaze-following. What survives is statistical rather than scripted: dogs cycle between objects and floor, look to their partner after an off-target glance, and look at a distant object shortly before walking to it. Those distributions, not a fixed sequence of looks, are what the quadruped policy is being trained to reproduce. A matched evaluation on Spot is next.</p>
+          <p class="areas">Embodied AI · Social attention · Learning from demonstration</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2026 — now · ICRA 2026 Learning-HRI workshop</p>
+          
+          <div class="plinks"><a href="https://ivyyyy24381.github.io/FetchHound_Bench/simple.html#pointing">Project website ↗</a></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-duo" aria-labelledby="tab-duo" hidden>
+        <div>
+          <h3>DUO Policy</h3>
+          <p class="long">Cross-embodiment learning lets human video stand in for expensive robot data,
+            but the embodiment gap confines the resulting policies to coarse behaviour. DUO Policy splits
+            the work: a hand policy pretrained on human video handles global, free-space motion, a robot
+            policy trained on sparse in-hand data makes local, precise corrections, and a gate learned
+            from human interventions switches between them. On coffee pod insertion, desk cleanup and
+            cluttered candy sorting it beats the best baseline by 25.3% in simulation and 51.7% in the
+            real world, with 2.75× better data-collection efficiency.</p>
+          <p class="areas">Cross-embodiment learning · Learning from human video · Imitation learning</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2025 — 2026 · Brown × Northeastern × Stanford</p>
+          <p class="pnote">With Mingxi Jia, Patton Jiyang Yin, Haojie Huang and others</p>
+          <div class="plinks"><a href="https://mingxi-jia.github.io/duo_policy_site/">Project website ↗</a><a href="https://mingxi-jia.github.io/papers/duo_policy.pdf">Paper (PDF) ↗</a></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-unitac" aria-labelledby="tab-unitac" hidden>
+        <div>
+          <h3>UniTac</h3>
+          <p class="long">Whole-body touch localisation drives expressive robot responses — sit, lie down, play bow, side pass — on both quadruped and manipulator platforms, without adding a single tactile sensor.</p>
+          <p class="areas">Tactile sensing in HRI · Expressive robot behaviour</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2024 — 2025 · CVPR 2026 Sense of Space workshop</p>
+          <p class="pnote">Outstanding Paper Award · also at RSS 2025 HRCM</p>
+          <div class="plinks"><a href="https://arxiv.org/abs/2507.07980">arXiv ↗</a></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-choreo" aria-labelledby="tab-choreo" hidden>
+        <div>
+          <h3>Choreographic Interrogation</h3>
+          <p class="long">Movement is captured in “chunks” on a human body and annotated with what the chunk means to the performer and why it was chosen, then translated onto Spot’s arm, body, legs and lights and reperformed on the robot.</p>
+          <p class="areas">Movement and computing · Expressive embodiment</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2026 · MOCO ’26, Montpellier</p>
+          
+          <div class="plinks"><a href="https://dl.acm.org/doi/10.1145/3802842.3802876">Paper (ACM DL) ↗</a></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-findit" aria-labelledby="tab-findit" hidden>
+        <div>
+          <h3>Find It Like a Dog</h3>
+          <p class="long">Five representations of the pointing vector compared head to head, then folded into a POMDP-based search framework. A combined arm-based vector significantly improves search accuracy, validated in real-robot experiments and a cross-species evaluation with domestic dogs.</p>
+          <p class="areas">Gesture understanding · HRI × cognitive science</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2023 — 2024 · CogSci 2024</p>
+          <p class="pnote">Also at RSS 2024 TaskSpec workshop</p>
+          <div class="plinks"><a href="https://escholarship.org/uc/item/0nk6w9fd">Paper ↗</a></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-fungal" aria-labelledby="tab-fungal" hidden>
+        <div>
+          <h3>Fungal Morphology</h3>
+          <p class="long">Fungal growth simulated from a graphics-generation perspective, paired with dynamic light containment that shapes living cultures in a petri dish.</p>
+          <p class="areas">Computational art · Simulation</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2024 · SIGGRAPH Asia 2024 Art Papers</p>
+          
+          <div class="plinks"><a href="https://arxiv.org/abs/2409.05171">arXiv ↗</a></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="panel-socialnav" aria-labelledby="tab-socialnav" hidden>
+        <div>
+          <h3>Yielding</h3>
+          <p class="long">A horse herd has no fixed leader and no right-of-way rule, yet it resolves conflicts constantly through legible, graded signals — matching pace, holding distance, orienting attention. The question is whether a robot can learn to give way the same way. The work so far is the instrument: an interactive social-navigation benchmark where the robot policy, the pedestrian model and the physics are strictly separated, so five baselines compete under identical constraints across corridor, crossing, bottleneck, crowd and circle-crossing scenes. Early measurements say interaction-aware planners barely modulate their speed while resolving a conflict, which makes them unreadable to anyone trying to cooperate with them — legibility as a precondition for reciprocity is the hypothesis being tested next.</p>
+          <p class="areas">Social navigation · Legibility · Animal behaviour as a model</p>
+        </div>
+        <div class="pside">
+          <p class="pmeta">2026 — now · In progress</p>
+          <p class="pnote">Baseline testing; no results to report yet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <h2 class="h2">Recent news</h2>
+    <div class="news">
+      <div class="item">
+        <div class="when">Nov 2026</div>
+        <div>
+          <p>Heading to <strong>CoRL</strong>. Say hello if you are there — I am always up for
+            talking about robots that read people, or about dogs.</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="when">Jun 2026</div>
+        <div>
+          <p>Preliminary results of <strong>FetchHound</strong> — learning a dog-like social attention
+            policy for human–robot object search — were presented at the ICRA 2026 Learning-HRI workshop.</p>
+          <div class="refs"><a href="https://ivyyyy24381.github.io/FetchHound_Bench/simple.html#pointing">Project site ↗</a></div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="when">Mar 2026</div>
+        <div>
+          <p><strong>LEGS-POMDP</strong> is accepted at HRI 2026. We combine language, gesture and
+            vision-language models to search for objects under partial observability.</p>
+          <div class="refs">
+            <a href="https://ivyyyy24381.github.io/LEGS/">Project site ↗</a>
+            <a href="https://arxiv.org/abs/2603.04705">arXiv ↗</a>
+            <a href="https://github.com/h2r/LEGS-POMDP">Code ↗</a>
+            <a href="https://www.brown.edu/news/2026-03-13/robot-fetch">Brown News ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="when">Mar 2026</div>
+        <div>
+          <p>Choreographic and improvisational approaches to interrogating robotic systems appears in
+            the proceedings of <strong>MOCO '26</strong>, Montpellier.</p>
+          <div class="refs"><a href="https://dl.acm.org/doi/10.1145/3802842.3802876">ACM DL ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+(function () {
+  /* ---------- theme toggle ---------- */
+  var btn = document.getElementById("themeBtn");
+  var root = document.documentElement;
+  function isDark() {
+    var set = root.getAttribute("data-theme");
+    return set ? set === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function label() { btn.textContent = isDark() ? "Light" : "Dark"; }
+  btn.addEventListener("click", function () {
+    root.setAttribute("data-theme", isDark() ? "light" : "dark");
+    label();
+  });
+  label();
+
+
+  /* ---------- project gallery ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".gcard"));
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;
+      select(i);
+    });
+    tab.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        if (e.target.closest("a")) return;
+        e.preventDefault(); select(i); return;
+      }
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var n = (i + d + tabs.length) % tabs.length;
+      tabs[n].focus(); select(n);
+    });
+  });
+  function select(i) {
+    tabs.forEach(function (tab, j) {
+      var on = i === j;
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+      document.getElementById(tab.getAttribute("aria-controls")).hidden = !on;
+    });
+    tabs[i].scrollIntoView({ block: "nearest", inline: "nearest",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+})();
+</script>
+</body>
+</html>
