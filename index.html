@@ -670,29 +670,34 @@ footer .wrap { padding-block: 26px; }
   tabs.forEach(function (tab, i) {
     tab.addEventListener("click", function (e) {
       if (e.target.closest("a")) return;
-      select(i);
+      toggle(i);
     });
     tab.addEventListener("keydown", function (e) {
       if (e.key === "Enter" || e.key === " ") {
         if (e.target.closest("a")) return;
-        e.preventDefault(); select(i); return;
+        e.preventDefault(); toggle(i); return;
       }
       var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
       if (!d) return;
       e.preventDefault();
       var n = (i + d + tabs.length) % tabs.length;
-      tabs[n].focus(); select(n);
+      tabs[n].focus(); show(n);
     });
   });
-  function select(i) {
+  var open = -1;
+  function show(i) {
+    open = i;
     tabs.forEach(function (tab, j) {
       var on = i === j;
       tab.setAttribute("aria-selected", on ? "true" : "false");
       document.getElementById(tab.getAttribute("aria-controls")).hidden = !on;
     });
+    if (i < 0) return;
     tabs[i].scrollIntoView({ block: "nearest", inline: "nearest",
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }
+  /* clicking the open card again closes it */
+  function toggle(i) { show(open === i ? -1 : i); }
 })();
 </script>
 </body>
