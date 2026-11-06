@@ -273,12 +273,13 @@ section > .wrap { padding-block: clamp(44px, 6vw, 76px); }
 .glinks a:hover { color: var(--lamp); border-color: var(--lamp); }
 .gcard[aria-selected="true"] { border-color: var(--lamp); box-shadow: 0 0 0 1.5px var(--lamp); }
 
-.detail { border-top: 1.5px solid var(--hairline); padding-top: 28px; }
-.detail:not(:has(.panel:not([hidden]))) { border-top: 0; padding-top: 0; }
 .panel[hidden] { display: none; }
 .panel {
+  grid-column: 1 / -1;
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 270px);
   gap: clamp(24px, 4vw, 52px); align-items: start;
+  border-top: 1.5px solid var(--hairline);
+  margin-top: 6px; padding: 26px 6px 10px;
 }
 .panel h3 {
   font-family: var(--display); font-weight: 700; letter-spacing: -.03em;
@@ -484,8 +485,6 @@ footer .wrap { padding-block: 26px; }
           <span class="gfoot"><span class="gname">Fungal Morphology</span><span class="gven">SIGGRAPH Asia 2024</span></span>
           <span class="glinks"><a href="https://arxiv.org/abs/2409.05171">Paper ↗</a></span>
         </div>
-    </div>
-    <div class="detail">
       <div class="panel" role="tabpanel" id="panel-umbra" aria-labelledby="tab-umbra" hidden>
         <div>
           <h3>UMBRA</h3>
@@ -684,18 +683,38 @@ footer .wrap { padding-block: 26px; }
       tabs[n].focus(); show(n);
     });
   });
+  var gallery = document.querySelector(".gallery");
   var open = -1;
-  function show(i) {
+  function panelOf(i) { return document.getElementById(tabs[i].getAttribute("aria-controls")); }
+  /* the panel spans the whole grid, so park it after the last card on the
+     clicked card's row — otherwise it opens below every card on the page */
+  function place(i) {
+    var top = tabs[i].offsetTop, last = tabs[i];
+    tabs.forEach(function (tab) {
+      if (Math.abs(tab.offsetTop - top) < 2) last = tab;
+    });
+    var panel = panelOf(i);
+    if (last.nextSibling !== panel) gallery.insertBefore(panel, last.nextSibling);
+  }
+  function show(i, scroll) {
     open = i;
     tabs.forEach(function (tab, j) {
-      var on = i === j;
-      tab.setAttribute("aria-selected", on ? "true" : "false");
-      document.getElementById(tab.getAttribute("aria-controls")).hidden = !on;
+      tab.setAttribute("aria-selected", i === j ? "true" : "false");
+      if (i !== j) panelOf(j).hidden = true;
     });
     if (i < 0) return;
+    place(i);
+    panelOf(i).hidden = false;
+    if (scroll === false) return;
     tabs[i].scrollIntoView({ block: "nearest", inline: "nearest",
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    if (open < 0) return;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { if (open >= 0) place(open); }, 120);
+  });
   /* clicking the open card again closes it */
   function toggle(i) { show(open === i ? -1 : i); }
 })();
